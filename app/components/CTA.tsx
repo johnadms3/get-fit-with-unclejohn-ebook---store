@@ -1,4 +1,24 @@
+"use client"
+
+import { useCart } from "../context/CartContext"
+import { useRouter } from "next/navigation"
+
 export default function CTA() {
+
+    const { addToCart } = useCart()
+    const router = useRouter()
+
+    const handleBuyNow = () => {
+        addToCart({
+            id: "get-fit-uncle-john",
+            title: "Get Fit With Uncle John",
+            price: 24.99,
+            quantity: 1
+        })
+        router.push("/cart")
+    }
+
+    
   return (
     <section className="py-8 px-6 text-center border-b border-gray-200 bg-white">
 

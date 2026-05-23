@@ -1,6 +1,18 @@
+"use client"
 import Image from "next/image"
+import { useCart } from "../context/CartContext"
 
 export default function CartSection(){
+
+    const { addToCart } = useCart()
+
+    const book = {
+        id:"get-fit-uncle-john",
+        title: "Get Fit With Uncle John",
+        price: 24.99,
+        quantity: 1
+    }
+    
     return (
         <section className="px-6 py-8">
 
