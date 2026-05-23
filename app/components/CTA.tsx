@@ -18,7 +18,7 @@ export default function CTA() {
         router.push("/cart")
     }
 
-    
+
   return (
     <section className="py-8 px-6 text-center border-b border-gray-200 bg-white">
 
@@ -41,7 +41,9 @@ export default function CTA() {
       </div>
 
       <div className="flex justify-center items-center gap-3 flex-wrap">
-        <button className="bg-black text-white text-sm font-medium px-7 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+        <button 
+        onClick = {handleBuyNow}
+        className="bg-black text-white text-sm font-medium px-7 py-3 rounded-lg hover:bg-gray-800 transition-colors">
           Buy Now — $24.99
         </button>
         <button className="text-sm px-5 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">

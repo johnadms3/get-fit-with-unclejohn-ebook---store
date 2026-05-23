@@ -1,6 +1,12 @@
+"use client"
+
 import Link from "next/link"
+import { useCart } from "../context/CartContext"
 
 export default function Sidebar() {
+
+    const { cartCount } = useCart()
+
   return (
     <aside className="w-48 min-h-screen border-r border-gray-200 flex flex-col px-4 py-6 gap-2">
       
@@ -21,7 +27,7 @@ export default function Sidebar() {
       </Link>
 
       <Link href="/cart" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
-        Cart (0)
+        Cart ({cartCount})
       </Link>
 
     </aside>
