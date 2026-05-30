@@ -12,7 +12,7 @@ export default function CartSection(){
         price: 24.99,
         quantity: 1
     }
-    
+
     return (
         <section className="px-6 py-8">
 
@@ -37,7 +37,9 @@ export default function CartSection(){
 
             <div className="flex items-center gap-4">
                 <span className="text -x1 font medium">$24.99</span>
-                <button className="bg-black text-white text-sm px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors">
+                <button 
+                onClick={() => addToCart(book)}
+                className="bg-black text-white text-sm px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors">
                     Add to cart
                 </button>
             </div>
