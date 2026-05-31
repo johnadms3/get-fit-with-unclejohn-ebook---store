@@ -1,12 +1,31 @@
 "use client"
 
+import { useState } from "react"
 import { useCart } from "../context/CartContext"
 import Sidebar from "../components/Sidebar"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function CartPage() {
+
     const { cartItems, removeFromCart, cartTotal } = useCart()
+    const [loading, setLoading] = useState(false)
+
+    const handleCheckout = async () => {
+        setLoading(true)
+        try {
+            const response = await fetch("/api/checkout", {
+                method: "POST",
+            })
+            const data = await response.json()
+            if (data.url) {
+                window.location.href = data.url // send customer to stripe
+            }
+        } catch (error) {
+            console.error("Checkout error:", error)
+            setLoading(false)
+        }
+    }
 
     return (
         <div className="flex min-h-screen">
@@ -20,7 +39,9 @@ export default function CartPage() {
                         <p className="text-gray-400 mb-4">Your cart is empty</p>
                         <Link
                            href="/"
-                           className="text-sm bg-black text-whit px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors">Back to store</Link> 
+                           className="text-sm bg-black text-whit px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors">
+                            Back to store
+                            </Link> 
                     </div>
                 ) : (
                   <div className="max-w-x1 flex flex-col gap-4">
@@ -49,7 +70,9 @@ export default function CartPage() {
                                 </span>
                                 <button
                                 onClick={() => removeFromCart(item.id)}
-                                className="text-xs text-red-400 hover:text-red-600 transition-colors">Remove</button>
+                                className="text-xs text-red-400 hover:text-red-600 transition-colors">
+                                    Remove
+                                    </button>
                             </div>
                         </div>
                     ))}
@@ -59,11 +82,16 @@ export default function CartPage() {
                         <span className="text-lg font-medium">${cartTotal.toFixed(2)}</span>
                     </div>
 
-                    <button className="w-full bg-black text-white text-sm font-medium py-3 rounded-lg hover:bg-gray-800 transition-colors">Proceed to Checkout</button>
+                    <button 
+                        onClick={handleCheckout}
+                        disabled={loading}
+                        className="w-full bg-black text-white text-sm font-medium py-3 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50">
+                            {loading ? "Redirecting to checkout..." : "Proceed to Checkout"}
+                            </button>
 
                   </div> 
                 )}
-                
+
             </main>
         </div>
     )
