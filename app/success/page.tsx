@@ -11,7 +11,7 @@ export default function SuccessPage() {
                 <div className="text-5x1 mb-6">💪🏾</div>
 
                 <h1 className="text-2x1 font-medium mb-3">
-                    You're all set!
+                    You&apos;re all set!
                 </h1>
 
                 <p className="text-sm text-gray-500 mb-2 max-w-sm leading-relaxed">
@@ -32,7 +32,7 @@ export default function SuccessPage() {
                         Back to store
                     </Link>
                 </div>
-                
+
             </main>
         </div>
     )

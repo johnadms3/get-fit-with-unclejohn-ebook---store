@@ -93,7 +93,7 @@ export default function CartPage() {
 
                     {!isSignedIn && (
                         <p className="text-xs text-gray-400 text-center">
-                            You'll need to sign in before completing your purchase
+                            You&apos;ll need to sign in before completing your purchase
                         </p>
                     )}
 

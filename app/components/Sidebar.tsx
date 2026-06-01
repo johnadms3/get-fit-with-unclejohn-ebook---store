@@ -2,11 +2,12 @@
 
 import Link from "next/link"
 import { useCart } from "../context/CartContext"
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
+import { useUser, UserButton } from "@clerk/nextjs"
 
 export default function Sidebar() {
 
     const { cartCount } = useCart()
+    const { isSignedIn }= useUser()
 
   return (
     <aside className="w-48 min-h-screen border-r border-gray-200 flex flex-col px-4 py-6 gap-2">
@@ -31,20 +32,20 @@ export default function Sidebar() {
         Cart ({cartCount})
       </Link>
 
-      <SignedOut>
+      {!isSignedIn &&(
         <Link
         href="/sign-in"
         className="text-sm text-gray-500 hover:hovertext-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors mt-auto">
             Sign in 
         </Link>
-      </SignedOut>
+      )}
 
-      <SignedIn>
+      {isSignedIn && (
         <div className="mt-auto flex items-center gap-2 px-3 py-2">
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
             <span className="text-xs text-gray-500">My account</span>
         </div>
-      </SignedIn>
+      )}
 
     </aside>
   )
