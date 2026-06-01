@@ -5,13 +5,22 @@ import { useCart } from "../context/CartContext"
 import Sidebar from "../components/Sidebar"
 import Link from "next/link"
 import Image from "next/image"
+import { useUser } from "@clerk/nextjs"
+import { useRouter } from "next/navigation"
 
 export default function CartPage() {
 
     const { cartItems, removeFromCart, cartTotal } = useCart()
     const [loading, setLoading] = useState(false)
+    const { isSignedIn } = useUser()
+    const router = useRouter()
 
     const handleCheckout = async () => {
+        if (!isSignedIn) {
+            router.push("/sign-in")
+            return
+        }
+
         setLoading(true)
         try {
             const response = await fetch("/api/checkout", {
@@ -81,6 +90,12 @@ export default function CartPage() {
                         <span className="text-sm text-gray-500">Total</span>
                         <span className="text-lg font-medium">${cartTotal.toFixed(2)}</span>
                     </div>
+
+                    {!isSignedIn && (
+                        <p className="text-xs text-gray-400 text-center">
+                            You'll need to sign in before completing your purchase
+                        </p>
+                    )}
 
                     <button 
                         onClick={handleCheckout}

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useCart } from "../context/CartContext"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 export default function Sidebar() {
 
@@ -29,6 +30,21 @@ export default function Sidebar() {
       <Link href="/cart" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
         Cart ({cartCount})
       </Link>
+
+      <SignedOut>
+        <Link
+        href="/sign-in"
+        className="text-sm text-gray-500 hover:hovertext-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors mt-auto">
+            Sign in 
+        </Link>
+      </SignedOut>
+
+      <SignedIn>
+        <div className="mt-auto flex items-center gap-2 px-3 py-2">
+            <UserButton afterSignOutUrl="/" />
+            <span className="text-xs text-gray-500">My account</span>
+        </div>
+      </SignedIn>
 
     </aside>
   )
