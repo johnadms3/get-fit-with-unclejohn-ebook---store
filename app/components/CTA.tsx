@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useCart } from "../context/CartContext"
 import { useRouter } from "next/navigation"
 
@@ -46,9 +47,9 @@ export default function CTA() {
         className="bg-black text-white text-sm font-medium px-7 py-3 rounded-lg hover:bg-gray-800 transition-colors">
           Buy Now — $24.99
         </button>
-        <button className="text-sm px-5 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+        <Link href="/preview" className="text-sm px-5 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transistion-colors">
           Preview first
-        </button>
+        </Link>
       </div>
 
       <p className="text-xs text-gray-400 mt-4">
