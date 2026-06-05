@@ -18,7 +18,7 @@ const chapters = [
 
 const previews = [
     {
-        src: "/into-screenshot.jpeg",
+        src: "/intro-screenshot.jpeg",
         label: "Introduction",
     },
     {
