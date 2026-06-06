@@ -1,13 +1,12 @@
 import { SignIn } from "@clerk/nextjs"
-import Sidebar from "../../components/Sidebar"
+import PageLayout from "../../components/PageLayout"
 
 export default function SignInPage() {
     return(
-        <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 flex items-center justify-center py-12">
+        <PageLayout>
+            <div className="flex-1 flex items-center justify-center py-12">
                 <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />
-            </main>
-        </div>
+            </div>
+        </PageLayout>
     )
 }

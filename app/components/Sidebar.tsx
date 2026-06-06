@@ -10,7 +10,7 @@ export default function Sidebar() {
     const { isSignedIn }= useUser()
 
   return (
-    <aside className="w-48 min-h-screen border-r border-gray-200 flex flex-col px-4 py-6 gap-2">
+    <aside className="hidden md:flex w-48 min-h-screen border-r border-gray-200 flex-col px-4 py-6 gap-2">
       
       <p className="text-sm font-medium leading-snug mb-4 pb-4 border-b border-gray-200">
         Get Fit With Uncle John

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Sidebar from "../components/Sidebar"
+import PageLayout from "../components/PageLayout"
 import Link from "next/link"
 
 const chapters = [
@@ -49,9 +49,8 @@ const previews = [
 
 export default function PreviewPage() {
     return (
-        <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 px-6 py-8 max-w-4xl">
+        <PageLayout>
+            <div className="px-4 sm:px-6 py-8 max-w-4x1">
 
                 <h1 className="text-2xl front-medium mb-2">Inside the Book </h1>
                 <p className="text-sm text-gray-500 mb-8">Take a look at what&apos;s waiting for you inside<strong> Get Fit With Uncle John</strong>
@@ -136,7 +135,7 @@ export default function PreviewPage() {
                         </Link>
                 </section>
 
-            </main>
-        </div>
+            </div>
+        </PageLayout>
     )
 }

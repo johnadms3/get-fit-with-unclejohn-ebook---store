@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useCart } from "../context/CartContext"
-import Sidebar from "../components/Sidebar"
+import PageLayout from "../components/PageLayout"
 import Link from "next/link"
 import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
@@ -37,9 +37,8 @@ export default function CartPage() {
     }
 
     return (
-        <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 px-6 py-8">
+            <PageLayout>
+            <div className="px-4 sm:px-6 py-8">
 
                 <h1 className="text-x1 font-medium mb-6">Your Cart</h1>
 
@@ -107,7 +106,7 @@ export default function CartPage() {
                   </div> 
                 )}
 
-            </main>
-        </div>
+            </div>
+        </PageLayout>
     )
 }

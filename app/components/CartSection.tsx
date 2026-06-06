@@ -18,7 +18,7 @@ export default function CartSection(){
 
             <h2 className="text-base font-medium mb-4">Get Your Copy</h2>
 
-            <div className="bg-white border border gray-200 rounded-x1 p-5 flex items-center justify-between flex-wrap gap-4">
+            <div className="bg-white border border gray-200 rounded-x1 p-5 flex  flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 
                 <div className="flex items-center gap-4">
                     <Image

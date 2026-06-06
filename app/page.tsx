@@ -1,4 +1,4 @@
-import Sidebar from "./components/Sidebar"
+import PageLayout from "./components/PageLayout"
 import Hero from "./components/Hero"
 import CTA from "./components/CTA"
 import Chapters from "./components/Chapters"
@@ -6,14 +6,11 @@ import CartSection from "./components/CartSection"
 
 export default function Home(){
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <main className="flex-1">
+      <PageLayout>
         <Hero />
         <CTA />
         <Chapters />
         <CartSection />
-      </main>
-    </div>
+      </PageLayout>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Sidebar from "../components/Sidebar"
+import PageLayout from "../components/PageLayout"
 
 
 export default function SuccessPage() {
@@ -23,9 +23,8 @@ export default function SuccessPage() {
     }
 
     return(
-        <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 flex flex-col items-center justify-center px-6 py-8 text-center">
+            <PageLayout>
+            <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-16 text-center min-h-[80vh]">
                 
                 <div className="text-5x1 mb-6">💪🏾</div>
 
@@ -54,7 +53,7 @@ export default function SuccessPage() {
                     </Link>
                 </div>
 
-            </main>
-        </div>
+            </div>
+        </PageLayout>
     )
 }
