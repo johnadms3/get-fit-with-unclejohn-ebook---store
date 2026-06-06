@@ -14,7 +14,7 @@ export default function SuccessPage() {
             const url = window.URL.createObjectURL(blob)
             const link = document.createElement("a")
             link.href = url
-            link.download = "GetFitWithUncleJohn.epub"
+            link.download = "GetRightWithUncleJohn.epub"
             link.click()
             window.URL.revokeObjectURL(url)
         } else {

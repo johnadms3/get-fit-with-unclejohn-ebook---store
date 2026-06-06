@@ -16,14 +16,14 @@ export async function GET() {
         }
         
         // Find the ebook file in the private folder
-        const filePath = path.join(process.cwd(), "private", "GetFitWithUncleJohn.epub")
+        const filePath = path.join(process.cwd(), "private", "GetRightWithUncleJohn.epub")
         const fileBuffer = readFileSync(filePath)
 
         // Send the file to the user
         return new NextResponse(fileBuffer, {
             headers: {
-                "Content-Type": "application/epub",
-                "Content-Disposition": "attachment; filename=GetFitWithUncleJohn.epub",
+                "Content-Type": "application/epub+zip",
+                "Content-Disposition": "attachment; filename=GetRightWithUncleJohn.epub",
             },
         })
 
