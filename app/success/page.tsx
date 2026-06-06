@@ -3,6 +3,23 @@ import Sidebar from "../components/Sidebar"
 
 
 export default function SuccessPage() {
+
+    const handleDownload = async () => {
+        const response = await fetch("/api/download")
+        if(response.ok) {
+            // Turn the response into a downloadable file
+            const blob = await response.blob()
+            const url = window.URL.createObjectURL(blob)
+            const link = document.createElement("a")
+            link.href = url
+            link.download = "GetFitWithUncleJohn.epub"
+            link.click()
+            window.URL.revokeObjectURL(url)
+        } else {
+            alert("There was a problem downloading your book. Please try again.")
+        }
+    }
+
     return(
         <div className="flex min-h-screen">
             <Sidebar />
@@ -23,7 +40,9 @@ export default function SuccessPage() {
                 </p>
 
                 <div className="flex gap-3 flex-wrap justify-center">
-                    <button className="bg-black text-white text-sm px-6 py-3 rounded-lg hover:bg-gray-800 transistion-colors">
+                    <button 
+                    onClick={handleDownload}
+                    className="bg-black text-white text-sm px-6 py-3 rounded-lg hover:bg-gray-800 transistion-colors">
                         Download your book
                     </button>
                     <Link
