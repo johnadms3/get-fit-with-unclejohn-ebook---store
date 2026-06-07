@@ -1,1 +1,50 @@
 @import "tailwindcss";
+:root {
+    /* Light mode (default) */
+    --bg: #FFFFFF;
+    --bg-surface: #FDF5F3;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #1A0A08;
+    --sidebar-text: #FCD9A8;
+    --sidebar-muted: #C49070;
+    --sidebar-active-bg: rgba(230, 50, 30, 0.2);
+    --accent: #E53020;
+    --accent-hover: #CC2218;
+    --gold: #D4960A;
+    --gold-bright: #E8A820;
+    --gold-bg: #FFF4D6;
+    --gold-text: #7A5500;
+    --red-bg: #FFE0DE;
+    --red-text: #B81A10;
+    --text-main: #1A0A08;
+    --text-muted: #6B4035;
+    --border: #F0D8D0;
+    --green: #2E7D32;
+}
+
+[data-theme="dark"] {
+    --bg: #120C0A;
+    --bg-surface: #1C1210;
+    --bg-card: #221815;
+    --bg-sidebar: #0A0605;
+    --sidebar-text: #FCD9A8;
+    --sidebar-muted: #C49070;
+    --sidebar-active-bg: rgba(230, 50, 30, 0.25);
+    --accent: #FF3B2E;
+    --accent-hover: #E53020;
+    --gold: #F0B020;
+    --gold-bright: #FFC840;
+    --gold-bg: #3A2A08;
+    --gold-text: #FFC840;
+    --red-bg: #3A1210;
+    --red-text: #FF8078;
+    --text-main: #F5E0DA;
+    --text-muted: #A07868;
+    --border: #3A2218;
+    --green: #4CAF50;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+}
