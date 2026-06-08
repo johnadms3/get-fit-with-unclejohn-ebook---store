@@ -17,7 +17,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         // Check if user has a saved preference
         const saved = localStorage.getItem("theme") as "light" | "dark" | null
         if (saved) {
-            setTheme(saved)
+            // setTheme(saved)
             document.documentElement.setAttribute("data-theme", saved)
         }
     }, [])

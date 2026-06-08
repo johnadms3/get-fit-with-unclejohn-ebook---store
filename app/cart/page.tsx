@@ -40,14 +40,16 @@ export default function CartPage() {
             <PageLayout>
             <div className="px-4 sm:px-6 py-8">
 
-                <h1 className="text-x1 font-medium mb-6">Your Cart</h1>
+                <h1 className="text-x1 font-medium mb-6" style={{ color: "var(--text-main)" }}>Your Cart</h1>
 
                 {cartItems.length === 0 ? (
                     <div className="text-center py-20">
-                        <p className="text-gray-400 mb-4">Your cart is empty</p>
+                        <p className="mb-4" style={{ color: "var(--text-muted)" }}>Your cart is empty</p>
                         <Link
                            href="/"
-                           className="text-sm bg-black text-whit px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors">
+                           className="text-sm px-5 py-2.5 rounded-lg transition-colors"
+                           style={{ background: "var(--accent)", color: "#fff" }}
+                           >
                             Back to store
                             </Link> 
                     </div>
@@ -57,41 +59,46 @@ export default function CartPage() {
                     {cartItems.map((item) => (
                         <div
                             key={item.id}
-                            className="bg-white border border-gray-200 rounded-x1 p-4 flex items-center justify-between gap-4">
+                            className="rounded-x1 p-4 flex items-center justify-between gap-4"
+                            style={{ background: "var(--bg-card)", border: "0.5px solid var (--border)" }}
+                            >
                             <div className="flex items-center gap-4">
                                 <Image
                                     src="/GetRightWithUncleJohn.jpeg"
                                     alt={item.title}
                                     width={48}
                                     height={64}
-                                    className="rounded-lg border border-gray-200"
+                                    className="rounded-lg"
+                                    style={{ border: "0.5px solid var(--border)" }}
                                     />
                                     <div>
-                                        <p className="text-sm font-medium">{item.title}</p>
-                                        <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                                        <p className="text-sm font-medium" style={{ color: "var(--text-main)" }}>{item.title}</p>
+                                        <p className="text-xs" style={{ color: "var(--text-muted)" }}>Qty: {item.quantity}</p>
                                     </div>
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <span className="text-sm font-medium">
+                                <span className="text-sm font-medium" style={{ color: "var(--gold)" }}>
                                     ${(item.price * item.quantity).toFixed(2)}
                                 </span>
                                 <button
-                                onClick={() => removeFromCart(item.id)}
-                                className="text-xs text-red-400 hover:text-red-600 transition-colors">
-                                    Remove
-                                    </button>
+                                    onClick={() => removeFromCart(item.id)}
+                                    className="text-xs transition-colors"
+                                    style={{ color: "var(--accent)" }}
+                            >
+                                Remove
+                                </button>
                             </div>
                         </div>
                     ))}
 
-                    <div className="border-t border-gray-200 pt-4 flex justify-between itemes-center">
-                        <span className="text-sm text-gray-500">Total</span>
-                        <span className="text-lg font-medium">${cartTotal.toFixed(2)}</span>
+                    <div className="pt-4 flex justify-between itemes-center" style={{ borderTop: "0.5px solid var(--border)" }}>
+                        <span className="text-sm" style={{ color: "var(--text-muted)" }}>Total</span>
+                        <span className="text-lg font-medium" style={{ color: "var(--gold)" }}>${cartTotal.toFixed(2)}</span>
                     </div>
 
                     {!isSignedIn && (
-                        <p className="text-xs text-gray-400 text-center">
+                        <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
                             You&apos;ll need to sign in before completing your purchase
                         </p>
                     )}
@@ -99,8 +106,10 @@ export default function CartPage() {
                     <button 
                         onClick={handleCheckout}
                         disabled={loading}
-                        className="w-full bg-black text-white text-sm font-medium py-3 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50">
-                            {loading ? "Redirecting to checkout..." : "Proceed to Checkout"}
+                        className="w-full text-sm font-medium py-3 rounded-lg transition-colors disabled:opacity-50"
+                        style={{ background: "var(--accent)", color: "#fff" }}
+                        >
+                            {loading ? "Redirecting to checkout..." : isSignedIn ? "Proceed to Checkout" : "Sign in to Checkout"}
                             </button>
 
                   </div> 

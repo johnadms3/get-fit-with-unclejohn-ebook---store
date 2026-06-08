@@ -21,39 +21,54 @@ export default function CTA() {
 
 
   return (
-    <section className="py-8 px-6 text-center border-b border-gray-200 bg-white">
+    <section 
+        className="py-8 px-6 text-center"
+        style={{ background: "var(--bg-card)", borderBottom: "0.5px solid var(--border)" }}
+        >
 
-      <h2 className="text-lg font-medium mb-2">
+      <h2 className="text-lg font-medium mb-2" style={{ color: "var(--text-main)" }}>
         Ready to transform your body?
       </h2>
 
-      <p className="text-sm text-gray-500 mb-5 leading-relaxed">
+      <p className="text-sm mb-5 leading-relaxed" style={{ color: "var(--text-muted)" }}>
         A complete fitness plan with multiple training levels,<br />
         exercise videos, and everything you need to get started.
       </p>
 
       <div className="flex justify-center gap-3 flex-wrap mb-5">
-        <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-lg">
+        <span 
+          className="text-xs px-3 py-1 rounded-lg font-medium"
+          style={{ background: "var(--gold-bg)", color: "var(--gold-text)" }}
+        >
           Instant download
         </span>
-        <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-lg">
+        <span 
+          className="text-xs px-3 py-1 rounded-lg font-medium"
+          style={{ background: "var(--red-bg)", color: "var(--red-text)" }}
+          >
           Beginner friendly
         </span>
       </div>
 
       <div className="flex justify-center items-center gap-3 flex-wrap">
         <button 
-        onClick = {handleBuyNow}
-        className="bg-black text-white text-sm font-medium px-7 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+          onClick = {handleBuyNow}
+          className="text-sm font-medium px-7 py-3 rounded-lg transition-colors"
+          style={{ background: "var(--accent)", color: "#fff" }}
+          >
           Buy Now — $24.99
         </button>
-        <Link href="/preview" className="text-sm px-5 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transistion-colors">
+        <Link 
+          href="/preview" 
+          className="text-sm px-5 py-3 rounded-lg transistion-colors"
+          style={{ color: "var(--gold)", border: "0.5px solid var(--gold)" }}
+          >
           Preview first
         </Link>
       </div>
 
-      <p className="text-xs text-gray-400 mt-4">
-        One-time payment — <span className="text-black font-medium">$24.99</span>
+      <p className="text-xs mt-4" style={{ color: "var(--text-muted)" }}>
+        One-time payment — <span className="font-medium" style={{ color: "var(--gold" }}>$24.99</span>
       </p>
 
     </section>

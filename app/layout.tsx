@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext"
 import { ClerkProvider } from "@clerk/nextjs"
+import { ThemeProvider } from "./context/ThemeContext"
 
 
 const geistSans = Geist({
@@ -23,9 +24,11 @@ export default function RootLayout({
     <ClerkProvider afterSignOutUrl="/">
     <html lang="en">
       <body className={geistSans.className}>
+        <ThemeProvider>
         <CartProvider>
           {children}
         </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>

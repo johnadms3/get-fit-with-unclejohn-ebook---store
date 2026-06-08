@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useCart } from "../context/CartContext"
 import { useUser, UserButton } from "@clerk/nextjs"
+import ThemeToggle from "./ThemeToggle"
 
 export default function Sidebar() {
 
@@ -10,43 +11,73 @@ export default function Sidebar() {
     const { isSignedIn }= useUser()
 
   return (
-    <aside className="hidden md:flex w-48 min-h-screen border-r border-gray-200 flex-col px-4 py-6 gap-2">
+    <aside 
+          className="hidden md:flex w-48 min-h-screen flex-col px-4 py-6 gap-2"
+          style={{ background: "var(--bg-sidebar)" }}    
+    >
       
-      <p className="text-sm font-medium leading-snug mb-4 pb-4 border-b border-gray-200">
+      <p 
+        className="text-sm font-medium leading-snug mb-4 pb-4"
+        style={{ color: "var(--sidebar-text)" , borderBottom: "0.5px solid rgba(252,217,168,0,15)" }}
+        >
         Get Fit With Uncle John
       </p>
 
-      <Link href="/" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <Link 
+        href="/" 
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
         Home
       </Link>
 
-      <Link href="/books" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <Link 
+        href="/books" 
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
         Books
       </Link>
 
-      <Link href="/preview" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <Link 
+        href="/preview" 
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
         Preview
       </Link>
 
-      <Link href="/cart" className="text-sm text-gray-500 hover:text-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <Link 
+        href="/cart" 
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
         Cart ({cartCount})
       </Link>
+
+      <div className="mt-auto flex flex-col gap-2">
+
+        <ThemeToggle />
 
       {!isSignedIn &&(
         <Link
         href="/sign-in"
-        className="text-sm text-gray-500 hover:hovertext-black px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors mt-auto">
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
             Sign in 
         </Link>
       )}
 
       {isSignedIn && (
-        <div className="mt-auto flex items-center gap-2 px-3 py-2">
+        <div className="flex items-center gap-2 px-3 py-2">
             <UserButton />
-            <span className="text-xs text-gray-500">My account</span>
+            <span className="text-xs" style={{ color: "var(--sidebar-muted)" }}>My account</span>
         </div>
       )}
 
+      </div>
+      
     </aside>
   )
 }
