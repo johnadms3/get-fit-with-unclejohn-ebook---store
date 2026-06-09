@@ -133,7 +133,7 @@ export default function PreviewPage() {
                     </p>
                     <Link 
                         href="/"
-                        className="inline-block text-sm font-medium px-7 py-3 rounded-lg transistion-colors"
+                        className="inline-block text-sm font-medium px-7 py-3 rounded-lg btn-animate"
                         style={{ background: "var(--accent)", color: "#fff" }}
                         >
                             Buy Now - $24.99

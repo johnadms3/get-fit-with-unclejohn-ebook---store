@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function AnimatedSection({
     children,
@@ -11,6 +11,7 @@ export default function AnimatedSection({
 }) {
 
     const ref = useRef<HTMLDivElement>(null)
+    const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
         const el = ref.current
@@ -20,14 +21,12 @@ export default function AnimatedSection({
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            el.classList.add("visible")
-                        }, delay)
+                        setTimeout(() => setIsVisible(true), delay)
                         observer.unobserve(el)
                     }
                 })
             },
-            { threshold: 0.1 }
+            { threshold: 0.05 }
         )
 
         observer.observe(el)
@@ -38,9 +37,13 @@ export default function AnimatedSection({
     return (
         <div
             ref={ref}
-            className="fade-in"
-            >
-                {children}
-            </div>
+            style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "opacity 0.6s ease, transform 0.6s ease",
+            }}
+        >
+            {children}
+        </div>
     )
 }
