@@ -53,14 +53,14 @@ export default function CTA() {
       <div className="flex justify-center items-center gap-3 flex-wrap">
         <button 
           onClick = {handleBuyNow}
-          className="text-sm font-medium px-7 py-3 rounded-lg transition-colors"
+          className="text-sm font-medium px-7 py-3 rounded-lg btn-animate"
           style={{ background: "var(--accent)", color: "#fff" }}
           >
           Buy Now — $24.99
         </button>
         <Link 
           href="/preview" 
-          className="text-sm px-5 py-3 rounded-lg transistion-colors"
+          className="text-sm px-5 py-3 rounded-lg btn-animate"
           style={{ color: "var(--gold)", border: "0.5px solid var(--gold)" }}
           >
           Preview first

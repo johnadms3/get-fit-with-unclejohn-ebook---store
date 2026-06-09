@@ -26,7 +26,7 @@ export default function Chapters() {
         {chapters.map((chapter) => (
           <div
             key={chapter.title}
-            className="rounded-xl p-4"
+            className="rounded-xl p-4 hover-lift cursor-pointer"
             style={{ background: "var(--bg-card)", border: "0.5px solid var(--border)" }}
           >
             <p className="text-sm font-medium flex items-center gap-2" style={{ color: "var(--text-main)" }}>

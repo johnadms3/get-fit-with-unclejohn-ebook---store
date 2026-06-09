@@ -50,7 +50,7 @@ const previews = [
 export default function PreviewPage() {
     return (
         <PageLayout>
-            <div className="px-4 sm:px-6 py-8 max-w-4x1">
+            <div className="px-4 sm:px-6 py-8 max-w-4x1 page-enter">
 
                 <h1 className="text-2xl front-medium mb-2" style={{ color: "var(--text-main)" }}>Inside the Book </h1>
                 <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
@@ -64,7 +64,7 @@ export default function PreviewPage() {
                         {chapters.map((chapter) => (
                             <div
                                 key={chapter.title}
-                                className="rounded-x1 p-4"
+                                className="rounded-x1 p-4 hover-lift cursor-pointer"
                                 style={{ color: "var(--accent)", border: "0.5px solid var(--border)" }}
                                 >
                                 <p className="text-sm font-medium flex items-center gap-2" style={{ color: "var(--text-on-accent)" }}>
@@ -108,7 +108,7 @@ export default function PreviewPage() {
                         {previews.map((preview) => (
                             <div
                                 key={preview.src}
-                                className="rounded-x1 overflow-hidden"
+                                className="rounded-x1 overflow-hidden hover-lift"
                                 style={{ background: "var(--accent)", border: "0.5px solid var(--border)" }}
                             >
                                 <div className="relative w-full aspect-[4/3]">

@@ -38,7 +38,7 @@ export default function CartPage() {
 
     return (
             <PageLayout>
-            <div className="px-4 sm:px-6 py-8">
+            <div className="px-4 sm:px-6 py-8 page-enter">
 
                 <h1 className="text-x1 font-medium mb-6" style={{ color: "var(--text-main)" }}>Your Cart</h1>
 

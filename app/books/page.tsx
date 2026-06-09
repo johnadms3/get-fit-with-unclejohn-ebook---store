@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function BooksPage() {
     return (
         <PageLayout>
-            <div className="px-4 sm:px-6 py-8 max-w-4x1">
+            <div className="px-4 sm:px-6 py-8 max-w-4x1 page-enter">
 
                 <h1 className="text-2x1 font-medium mb-2" style={{ color: "var(--text-main)" }}>Books</h1>
                 <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
@@ -14,7 +14,7 @@ export default function BooksPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:graid-cols-3 gap-4">
 
-                    <div className="rounded-x1 overflow-hidden" style={{ background: "var(--bg-card)", border: "0.5px solid var(--border)" }}>
+                    <div className="rounded-x1 overflow-hidden hover-glow hover-scale" style={{ background: "var(--bg-card)", border: "0.5px solid var(--border)" }}>
                         <div className="flex justify-center p-6" style={{ background: "rgba(0,0,0,0.15)" }}>
                         <Image
                             src="/GetRightWithUncleJohn.jpeg"
