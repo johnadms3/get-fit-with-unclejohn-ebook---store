@@ -15,19 +15,19 @@ export default function BooksPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:graid-cols-3 gap-4">
 
                     <div className="rounded-x1 overflow-hidden" style={{ background: "var(--bg-card)", border: "0.5px solid var(--border)" }}>
-                        <div className="flex justify-center p-6" style={{ background: "var(--bg-surface)" }}>
+                        <div className="flex justify-center p-6" style={{ background: "rgba(0,0,0,0.15)" }}>
                         <Image
                             src="/GetRightWithUncleJohn.jpeg"
                             alt="Get Fit With Uncle John"
                             width={120}
                             height={160}
                             className="rounded-lg"
-                            style={{ border: "0.5px solid var(--border)" }}
+                            style={{ border: "0.5px solid rgba(255,255,255,0.2)" }}
                             />
                         </div>
                     <div className="p-4">
                         <h2 className="text-sm font-medium mb-1" style={{ color: "var(--text-main)" }}>Get Right With Uncle John</h2>
-                        <p className="text-xs mb-3" style={{ color: "var(--text-muted)" }}>
+                        <p className="text-xs mb-3" style={{ color: "var)--text-muted)" }}>
                             A complete fitness plan for multiple training levels. With exercise videos and everything you need to get started.
                         </p>
                         <div className="flex items-center justify-between">

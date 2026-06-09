@@ -52,30 +52,32 @@ export default function PreviewPage() {
         <PageLayout>
             <div className="px-4 sm:px-6 py-8 max-w-4x1">
 
-                <h1 className="text-2xl front-medium mb-2">Inside the Book </h1>
-                <p className="text-sm text-gray-500 mb-8">Take a look at what&apos;s waiting for you inside<strong> Get Fit With Uncle John</strong>
+                <h1 className="text-2xl front-medium mb-2" style={{ color: "var(--text-main)" }}>Inside the Book </h1>
+                <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
+                    Take a look at what&apos;s waiting for you inside<strong style={{ color: "var(--text-main)" }}> Get Fit With Uncle John</strong>
                 </p>
 
                 {/* Chapter List*/}
                 <section className="mb-10">
-                    <h2 className="text-base font-medium mb-4">Chapters</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                    <h2 className="text-base font-medium mb-4" style={{ color: "var(--text-main)" }}>Chapters</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                         {chapters.map((chapter) => (
                             <div
                                 key={chapter.title}
-                                className="bg-white border border-gray-200 rounded-x1 p-4"
+                                className="rounded-x1 p-4"
+                                style={{ color: "var(--accent)", border: "0.5px solid var(--border)" }}
                                 >
-                                <p className="text-sm font-medium flex items-center gap-2">
+                                <p className="text-sm font-medium flex items-center gap-2" style={{ color: "var(--text-on-accent)" }}>
                                     {chapter.dot === "red" && (
-                                        <span className="w-2 h-2 rounded-full bg-red-500 inline-block" />
+                                        <span className="w-2 h-2 rounded-full inline-block" style={{ background: "var(--gold-bright)" }} />
 
                                     )}
                                     {chapter.dot === "black" && (
-                                        <span className="w-2 h-2 rounded-full bg-black inline-block" />
+                                        <span className="w-2 h-2 rounded-full inline-block" style={{ background: "#1A0A08" }} />
                                         
                                     )}
                                     {chapter.dot === "green" && (
-                                        <span className="w-2 h-2 rounded-full bg-green-600 inline-block" />
+                                        <span className="w-2 h-2 rounded-full inline-block" style={{ background: "#4CAF50" }} />
                                         
                                     )}
                                     {chapter.title}
@@ -86,7 +88,8 @@ export default function PreviewPage() {
                                         {chapter.subtitles.map((sub) => (
                                             <span
                                                 key={sub}
-                                                className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-lg"
+                                                className="text-xs px-2 py-1 rounded-lg"
+                                                style={{ background: "rgba(0,0,0,0.2)", color: "var(--gold-bright)" }}
                                                 >
                                                     {sub}
                                                 </span>
@@ -100,12 +103,13 @@ export default function PreviewPage() {
 
                 {/* Preview Section */}
                 <section className="mb-10">
-                    <h2 className="text-base font-medium mb-4">Preview Pages</h2>
+                    <h2 className="text-base font-medium mb-4" style={{ color: "var(--text-main)" }}>Preview Pages</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {previews.map((preview) => (
                             <div
                                 key={preview.src}
-                                className="border border-gray-200 rounded-x1 overflow-hidden bg-white"
+                                className="rounded-x1 overflow-hidden"
+                                style={{ background: "var(--accent)", border: "0.5px solid var(--border)" }}
                             >
                                 <div className="relative w-full aspect-[4/3]">
                                     <Image
@@ -115,21 +119,22 @@ export default function PreviewPage() {
                                         className="object-cover"
                                         />
                                 </div>
-                                <p className="text-sm font-medium px-4 py-3">{preview.label}</p>
+                                <p className="text-sm font-medium px-4 py-3" style={{ color: "var(--text-on-accent)" }}>{preview.label}</p>
                                 </div>
                         ))}
                     </div>
                 </section>
 
                 {/* CTA at the bottom */}
-                <section className="text-center py-8 border-t border-gray-200">
-                    <h2 className="text-lg font-medium mb-2">Ready to get started?</h2>
-                    <p className="text-sm text-gray-500 mb-5">
+                <section className="text-center py-8" style={{ borderTop: "0.5px solid var (--border)" }}>
+                    <h2 className="text-lg font-medium mb-2" style={{ color: "var(--text-main)" }}>Ready to get started?</h2>
+                    <p className="text-sm mb-5" style={{ color: "var(--text-muted)" }}>
                         Get the full plan, all exercises, and the video library.
                     </p>
                     <Link 
                         href="/"
-                        className="inline-block bg-black text-white tex-sm font-medium px-7 py-3 rounded-lg hover:bg-gray-800 transistion-colors"
+                        className="inline-block text-sm font-medium px-7 py-3 rounded-lg transistion-colors"
+                        style={{ background: "var(--accent)", color: "#fff" }}
                         >
                             Buy Now - $24.99
                         </Link>
