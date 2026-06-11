@@ -1,17 +1,20 @@
 "use client"
+
 import Image from "next/image"
 import { useCart } from "../context/CartContext"
+import { getAllBooks } from "../data/books"
 
 export default function CartSection(){
 
     const { addToCart } = useCart()
+    const book = getAllBooks()[0]
 
-    const book = {
-        id:"get-fit-uncle-john",
-        title: "Get Fit With Uncle John",
-        price: 24.99,
-        quantity: 1
-    }
+    // const book = {
+    //     id:"get-fit-uncle-john",
+    //     title: "Get Fit With Uncle John",
+    //     price: 24.99,
+    //     quantity: 1
+    // }
 
     return (
         <section className="px-6 py-8" style={{ background: "var(--bg-surface)" }}>
@@ -27,8 +30,8 @@ export default function CartSection(){
 
                 <div className="flex items-center gap-4">
                     <Image
-                        src="/GetRightWithUncleJohn.jpeg"
-                        alt="Get Fit With Uncle John"
+                        src={book.cover}
+                        alt={book.title}
                         width={52}
                         height={68}
                         className="rounded-lg"
@@ -44,7 +47,7 @@ export default function CartSection(){
             <div className="flex items-center gap-4">
                 <span className="text -x1 font medium" style={{ color: "var(--gold)" }}>$24.99</span>
                 <button 
-                    onClick={() => addToCart(book)}
+                    onClick={() => addToCart({ id: book.id, title: book.title, price: book.price, quantity: 1 })}
                     className="text-sm px-5 py-2.5 rounded-lg btn-animate"
                     style={{ background: "var(--accent)", color: "#fff" }}
                     >

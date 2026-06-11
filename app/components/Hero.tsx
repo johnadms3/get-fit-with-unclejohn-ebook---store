@@ -1,6 +1,11 @@
 import Image from "next/image"
+import { getAllBooks } from "../data/books"
+
 
 export default function Hero() {
+  const book = getAllBooks()[0]
+
+
   return (
     <section 
     className="bg-gray-50 py-10 px-6 text-center"
@@ -8,7 +13,7 @@ export default function Hero() {
     >
 
       <h1 className="text-3xl font-medium mb-2" style={{ color: "var=(--accent)" }}>
-        Get Fit With Uncle John
+        {book.title}
       </h1>
 
       <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
@@ -17,8 +22,8 @@ export default function Hero() {
 
       <div className="flex justify-center">
         <Image
-          src="/GetRightWithUncleJohn.jpeg"
-          alt="Get Fit With Uncle John book cover"
+          src={book.cover}
+          alt= {book.title}
           width={130}
           height={175}
           className="rounded-lg"

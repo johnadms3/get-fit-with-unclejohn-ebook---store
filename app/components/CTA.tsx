@@ -3,17 +3,19 @@
 import Link from "next/link"
 import { useCart } from "../context/CartContext"
 import { useRouter } from "next/navigation"
+import { getAllBooks } from "../data/books"
 
 export default function CTA() {
 
     const { addToCart } = useCart()
     const router = useRouter()
+    const book = getAllBooks()[0]
 
     const handleBuyNow = () => {
         addToCart({
-            id: "get-fit-uncle-john",
-            title: "Get Fit With Uncle John",
-            price: 24.99,
+            id: book.id,
+            title: book.title,
+            price: book.price,
             quantity: 1
         })
         router.push("/cart")
@@ -31,23 +33,19 @@ export default function CTA() {
       </h2>
 
       <p className="text-sm mb-5 leading-relaxed" style={{ color: "var(--text-muted)" }}>
-        A complete fitness plan with multiple training levels,<br />
-        exercise videos, and everything you need to get started.
+        {book.description}
       </p>
 
       <div className="flex justify-center gap-3 flex-wrap mb-5">
-        <span 
-          className="text-xs px-3 py-1 rounded-lg font-medium"
-          style={{ background: "var(--gold-bg)", color: "var(--gold-text)" }}
-        >
-          Instant download
+        {book.badges.map((badge) => (
+           <span 
+            key={badge}
+            className="text-xs px-3 py-1 rounded-lg font-medium"
+            style={{ background: "var(--gold-bg)", color: "var(--gold-text)" }}
+            >
+          {badge}
         </span>
-        <span 
-          className="text-xs px-3 py-1 rounded-lg font-medium"
-          style={{ background: "var(--red-bg)", color: "var(--red-text)" }}
-          >
-          Beginner friendly
-        </span>
+        ))}
       </div>
 
       <div className="flex justify-center items-center gap-3 flex-wrap">
@@ -56,7 +54,7 @@ export default function CTA() {
           className="text-sm font-medium px-7 py-3 rounded-lg btn-animate"
           style={{ background: "var(--accent)", color: "#fff" }}
           >
-          Buy Now — $24.99
+          Buy Now — ${book.price}
         </button>
         <Link 
           href="/preview" 

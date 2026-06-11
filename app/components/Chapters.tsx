@@ -1,3 +1,6 @@
+import { getAllBooks } from "../data/books"
+
+
 const chapters = [
     {title: "Whats Good!!"},
     {title: "How to use this fitness plan?"},
@@ -12,6 +15,8 @@ const chapters = [
 ]
 
 export default function Chapters() {
+    const book = getAllBooks()[0]
+
     return(
         <section 
             className="px-6 py-8"
@@ -23,7 +28,7 @@ export default function Chapters() {
       </h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-        {chapters.map((chapter) => (
+        {book.chapters.map((chapter) => (
           <div
             key={chapter.title}
             className="rounded-xl p-4 hover-lift cursor-pointer"
