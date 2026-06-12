@@ -25,7 +25,15 @@ export default function CartPage() {
         try {
             const response = await fetch("/api/checkout", {
                 method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    items: cartItems.map((item) => ({
+                        id: item.id,
+                        quantity: item.quantity,
+                    }))
+                })
             })
+            
             const data = await response.json()
             if (data.url) {
                 window.location.href = data.url // send customer to stripe
