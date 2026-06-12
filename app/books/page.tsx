@@ -43,7 +43,7 @@ export default function BooksPage() {
                         <div className="flex items-center justify-between">
                             <span className="text-base font-medium" style={{ color: "var(--gold)" }}>${book.price}</span>
                             <Link
-                                href={`/book/${book.id}`}
+                                href={`/books/${book.id}`}
                                 className="text-xs px-4 py-2 rounded-lg transition-colors"
                                 style={{ background: "var(--accent)", color: "#fff" }}
                                 >

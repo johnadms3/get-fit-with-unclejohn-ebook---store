@@ -41,6 +41,7 @@ export default function BookDetailPage() {
                             src={book.cover}
                             alt={book.title}
                             width={180}
+                            height={240}
                             className="rounded-lg"
                             style={{ border: "0.5 solid var(--border)" }}
                         />
