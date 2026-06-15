@@ -1,6 +1,7 @@
 import Stripe from "stripe"
 import { NextResponse, NextRequest } from "next/server"
 import { getAllBooks } from "../../data/books"
+import { validateDiscount } from "../../data/discounts"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
@@ -8,7 +9,7 @@ export async function POST(req: NextRequest) {
     try {
 
         const body = await req.json()
-        const { items } = body
+        const { items, discountCode } = body
 
         const allBooks = getAllBooks()
 
@@ -27,6 +28,22 @@ export async function POST(req: NextRequest) {
                 quantity: item.quantity,
             }
         })
+
+        // Apply discount if a valid code was provided
+        const discounts: Stripe.Checkout.SessionCreateParams.Discount[] = []
+
+        if(discountCode) {
+            const discount = validateDiscount(discountCode)
+            if (discount) {
+                // Create a Stripe coupon on the fly
+                const coupon = await stripe.coupons.create(
+                    discount.type === "percent"
+                    ? { percent_off: discount.value, duration: "once" }
+                    : { amount_off: discount.value * 100, currency:"usd", duration: "once" }
+                )
+                discounts.push({ coupon:coupon.id })
+            }
+        }
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
