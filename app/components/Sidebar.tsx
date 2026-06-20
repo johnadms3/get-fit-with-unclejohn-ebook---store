@@ -8,7 +8,7 @@ import ThemeToggle from "./ThemeToggle"
 export default function Sidebar() {
 
     const { cartCount } = useCart()
-    const { isSignedIn }= useUser()
+    const { isSignedIn, user }= useUser()
 
   return (
     <aside 
@@ -55,6 +55,16 @@ export default function Sidebar() {
         Cart ({cartCount})
       </Link>
 
+      {isSignedIn && user?.id === process.env.NEXT_PUBLIC_ADMIN_USER_ID && (
+        <Link
+          href="/admin"
+          className="text-sm px-3 py-2 rounded-lg transition-colors"
+          style={{ color: "var(--gold)" }}
+        >
+          Admin
+        </Link>
+      )}
+
       <div className="mt-auto flex flex-col gap-2">
 
         <ThemeToggle />
@@ -77,7 +87,7 @@ export default function Sidebar() {
       )}
 
       </div>
-      
+
     </aside>
   )
 }

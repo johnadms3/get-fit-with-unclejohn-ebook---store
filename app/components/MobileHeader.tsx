@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle"
 export default function MobileHeader() {
     const [menuOpen, setMenuOpen] = useState(false)
     const { cartCount } = useCart()
-    const {isSignedIn } = useUser()
+    const { isSignedIn, user } = useUser()
 
 
     return (
@@ -89,6 +89,16 @@ export default function MobileHeader() {
                                 Cart({cartCount})
                         </Link>
 
+                        {isSignedIn && user?.id === process.env.NEXT_PUBLIC_ADMIN_USER_ID && (
+                            <Link
+                                href="/admin"
+                                onClick={() => setMenuOpen(false)}
+                                className="text-sm px-3 py-2 rounded-lg transition-colors"
+                                style={{ color: "var(--gold)" }}
+                            >
+                                Admin
+                            </Link>
+                        )}
                         <div className="mt-auto flex flex-col gap-2">
 
                             <ThemeToggle />
