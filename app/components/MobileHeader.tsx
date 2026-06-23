@@ -118,6 +118,16 @@ export default function MobileHeader() {
                             </>
                         )}
                         <div className="mt-auto flex flex-col gap-2">
+                        <a
+                                href="https://www.tiktok.com/t/ZTBcGoGJo/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm px-3 py-2 rounded-lg transition-colors"
+                                style={{ color: "var(--sidebar-muted)" }}
+                        >
+                            TikTok ↗
+                        </a>
+                        
 
                             <ThemeToggle />
 
