@@ -40,13 +40,9 @@ export async function GET(req: NextRequest){
 export async function POST(req: NextRequest) {
     try {
 
-        console.log("=== MESSAGE POST START ===")
-
         const { userId } = await auth()
-        console.log("User ID:", userId)
 
         if (!userId) {
-            console.log("No user ID - Unauthorized")
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
         }
     
@@ -54,32 +50,26 @@ export async function POST(req: NextRequest) {
     const user = await currentUser()
     const email = user?.emailAddresses?.[0]?.emailAddress || "Unkown"
     const isAdmin = userId === process.env.NEXT_PUBLIC_ADMIN_USER_ID
-    console.log("Email", email , "Is Admin", isAdmin)
 
     const body = await req.json()
-    console.log("Request body:" , body)
     const { content, conversationId } = body
 
     // Validate inputs
     if (!content || typeof content !== "string" || !conversationId) {
-        console.log("Invalid message data")
         return NextResponse.json({ error: "Invalid message" }, { status: 400 })
     }
 
     // Sanitize - limit message length
     const sanitizedContent = content.trim().slice(0,2000)
     if (sanitizedContent.length === 0) {
-        console.log("Empty message after sanitize")
         return NextResponse.json({ error: "Message cannot be empty" }, { status: 400 })
     }
 
     // Customers can only send to their own conversation
     if (!isAdmin && conversationId !== userId) {
-        console.log("Conversation ID mismatch", conversationId, "vs", userId)
         return NextResponse.json({ error: "Unauthorized"}, { status: 401 })
     }
 
-    console.log("Attempthing Supabase insert...")
 
     const { data, error } = await supabase
         .from("messages")
@@ -93,12 +83,8 @@ export async function POST(req: NextRequest) {
         .select()
         .single()
 
-    if (error) {
-        console.log("Supabase error", error)
-        throw error
-    }
+    if (error) throw error
 
-    console.log("Message saved:", data)
     return NextResponse.json({ message: data })
 
     } catch (error) {
