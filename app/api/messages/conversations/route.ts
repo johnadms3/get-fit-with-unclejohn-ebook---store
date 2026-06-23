@@ -2,16 +2,17 @@ import { auth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
 import { supabase } from "../../../lib/supabase"
 
+
 export async function GET() {
     try {
         const { userId } = await auth()
-        if (userId !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
+        if (!userId || userId !== process.env.NEXT_PUBLIC_ADMIN_USER_ID) {
             return NextResponse.json({ error: "Unauthorized"}, { status: 401 })
         }
 
         const { data, error } = await supabase
             .from("messages")
-            .select("conversation_id, sender_email, content, created_at")
+            .select("conversation_id, sender_email, sender_role, content, created_at")
             .order("created_at", { ascending: false })
 
         if (error) throw error
@@ -26,12 +27,22 @@ export async function GET() {
 
         data.forEach((msg) => {
             if (!conversationMap.has(msg.conversation_id)) {
+                //Get the customer email, not the admin email
+                const email = msg.sender_role === "customer" ? msg.sender_email : ""
                 conversationMap.set(msg.conversation_id,{
                     conversationId: msg.conversation_id,
-                    email: msg.sender_email,
+                    email: email || "Customer",
                     lastMessage: msg.content,
                     lastDate: new Date(msg.created_at).toLocaleDateString(),
                 })
+            }
+
+            // Update email if we find a customer message
+            if (msg.sender_role === "customer" && conversationMap.has(msg.conversation_id)){
+                const convo = conversationMap.get(msg.conversation_id)!
+                if (convo.email === "Customer") {
+                    convo.email = msg.sender_email
+                }
             }
         })
         const conversations = Array.from(conversationMap.values())

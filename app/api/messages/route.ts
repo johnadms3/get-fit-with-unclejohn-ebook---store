@@ -51,8 +51,20 @@ export async function POST(req: NextRequest) {
 
     const { content, conversationId } = await req.json()
 
-    if (!content || !conversationId) {
-        return NextResponse.json({ error: "Missing fields" }, { status: 400 })
+    // Validate inputs
+    if (!content || typeof content !== "string" || !conversationId) {
+        return NextResponse.json({ error: "Invalid message" }, { status: 400 })
+    }
+
+    // Sanitize - limit message length
+    const sanitizedContent = content.trim().slice(0,2000)
+    if (sanitizedContent.length === 0) {
+        return NextResponse.json({ error: "Message cannot be empty" }, { status: 400 })
+    }
+
+    // Customers can only send to their own conversation
+    if (!isAdmin && conversationId !== userId) {
+        return NextResponse.json({ error: "Unauthorized"}, { status: 401 })
     }
 
     const { data, error } = await supabase
@@ -68,10 +80,11 @@ export async function POST(req: NextRequest) {
         .single()
 
     if (error) throw error
+
     return NextResponse.json({ message: data })
-    
+
     } catch (error) {
-        console.error("MEssages POST error:", error)
+        console.error("Messages POST error:", error)
         return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
     }
 }

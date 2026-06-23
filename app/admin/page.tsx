@@ -34,7 +34,7 @@ export default function AdminPage() {
                     setStats(data.stats)
                 }
             } catch (error) {
-                console.error("Failed to laod sales:", error)
+                console.error("Failed to load sales:", error)
             }
             setLoading(false)
         }
