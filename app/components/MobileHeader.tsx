@@ -89,7 +89,16 @@ export default function MobileHeader() {
                                 Cart({cartCount})
                         </Link>
 
+                        <Link
+                            href="/messages"
+                            className="text-sm px-3 py-2 rounded-lg transition-colors"
+                            style={{ color: "var(--sidebar-muted)" }}
+                            >
+                                Messages
+                            </Link>
+
                         {isSignedIn && user?.id === process.env.NEXT_PUBLIC_ADMIN_USER_ID && (
+                            <>
                             <Link
                                 href="/admin"
                                 onClick={() => setMenuOpen(false)}
@@ -98,6 +107,15 @@ export default function MobileHeader() {
                             >
                                 Admin
                             </Link>
+
+                            <Link
+                                href="/admin/messages"
+                                className="text-sm px-3 py-2 rounded-lg transition-colors"
+                                style={{ color: "var(--gold)" }}
+                                >
+                                    Inbox
+                            </Link>
+                            </>
                         )}
                         <div className="mt-auto flex flex-col gap-2">
 

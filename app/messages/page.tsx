@@ -36,7 +36,7 @@ export default function MessagesPage() {
             setChecking(false)
         }
         if (isSignedIn) checkPurchase()
-            else setChecking(false)
+        // else setChecking(false)
     }, [isSignedIn])
 
     // Load messages
@@ -150,7 +150,7 @@ return (
                     Message Uncle John
                 </h1>
                 <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                    Ask questions about the program -- I'll get back to you!
+                    Ask questions about the program -- I&apos;ll get back to you!
                 </p>
             </div>
 
@@ -234,7 +234,7 @@ return (
                     </button>
                 </div>
             </div>
-            
+
         </div>
     </PageLayout>
 )
