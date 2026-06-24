@@ -5,6 +5,7 @@ import Hero from "./components/Hero"
 import CTA from "./components/CTA"
 import Chapters from "./components/Chapters"
 import CartSection from "./components/CartSection"
+import BuckedUpSection from "./components/BuckedUpSection"
 import AnimatedSection from "./components/AnimatedSection"
 
 export default function Home(){
@@ -21,6 +22,9 @@ export default function Home(){
           </AnimatedSection>
           <AnimatedSection delay={200}>
         <CartSection />
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <BuckedUpSection />
           </AnimatedSection>
         </div>
       </PageLayout>
