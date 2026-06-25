@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useCart } from "../context/CartContext"
 import { useUser, UserButton } from "@clerk/nextjs"
 import ThemeToggle from "./ThemeToggle"
@@ -61,6 +62,20 @@ export default function Sidebar() {
         style={{ color: "var(--sidebar-muted)" }}
         >
         Messages
+      </Link>
+      <Link
+        href="/supplements"
+        className="text-sm px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
+        style={{ color: "var(--sidebar-muted)" }}
+      >
+        <Image
+          src="/buckedup_logo4.png"
+          alt=""
+          width={16}
+          height={16}
+          className="object-contain"
+        />
+        Supplements
       </Link>
 
       {isSignedIn && user?.id === process.env.NEXT_PUBLIC_ADMIN_USER_ID && (
