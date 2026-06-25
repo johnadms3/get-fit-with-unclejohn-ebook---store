@@ -21,7 +21,7 @@ const products = [
         description: "Build strength and power with every rep",
         icon: "💪🏾",
         items: [
-            { src: "/buckbuild.png", name: "Buck Build" },
+            { src: "/bb.png", name: "Buck Build" },
             { src: "/creatine-gummies.png", name: "Creatine Gummies" },
             { src: "/6point-creatine.png", name: "6 Point Creatine" },
             { src: "/creatine-mono.png", name: "Creatine Monohydrate"},
@@ -93,7 +93,7 @@ export default function SupplementsPage() {
                     <div className="relative">
                         <div className="flex justify-center mb-4">
                             <Image
-                                src="/buckedup_logo2.png"
+                                src="/buckedup_logo1.png"
                                 alt="BuckedUp"
                                 width={140}
                                 height={40}
@@ -150,7 +150,7 @@ export default function SupplementsPage() {
                             {category.items.map((item) => (
                            <a 
                                 key={item.name}
-                                href="http://bckd.com/qBzeSW1"
+                                href="https://bckd.co/qBzeSW1"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="rounded-x1 p-4 flex flex-col items-center gap-3 hover-lift cursor-pointer"
@@ -216,7 +216,7 @@ export default function SupplementsPage() {
                     <br />
 
                     <a
-                        href="http://bckd.com/qBzeSW1"
+                        href="https://bckd.co/qBzeSW1"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-sm font-medium px-7 py-3 rounded-lg btn-animate"
@@ -226,7 +226,7 @@ export default function SupplementsPage() {
                     </a>
                 </div>
 
-                
+
             </div>
         </PageLayout>
     )

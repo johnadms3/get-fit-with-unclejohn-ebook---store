@@ -69,7 +69,7 @@ export default function Sidebar() {
         style={{ color: "var(--sidebar-muted)" }}
       >
         <Image
-          src="/buckedup_logo4.png"
+          src="/buckedup_logo3.png"
           alt=""
           width={16}
           height={16}

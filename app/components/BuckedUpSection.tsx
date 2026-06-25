@@ -5,7 +5,7 @@ import { useState } from "react"
 
 const featuredProducts = [
     { src: "/preworkout-1.png", name: "Pre-workout" },
-    { src: "/buckbuild.png", name: "Creatine" },
+    { src: "/bb.png", name: "Creatine" },
     { src: "/test-booster.png", name: "Testtosterone" },
     { src: "/bcaa.png", name: "BCAA" },
 ]
@@ -113,7 +113,7 @@ export default function BuckedUpSection(){
 
                 {/* Shop button */}
                 <a
-                    href="http://bckd.co/qBzeSW1"
+                    href="https://bckd.co/qBzeSW1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block text-sm font-medium px-7 py-3 rounded-lg btn-animate"
@@ -125,7 +125,7 @@ export default function BuckedUpSection(){
                 <p className="text-xs mt-3" style={{ color: "var(--sidebar-muted)" }}>
                     <span style={{ color: "var(--green)" }}>✓</span>Promo code auto-applies at checkout
                 </p>
-                
+
             </div>
         </section>
     )
