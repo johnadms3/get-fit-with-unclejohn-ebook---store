@@ -110,8 +110,8 @@ export default function ToolsPage() {
                         TDEE Calculator
                     </h2>
                     <p className="text-sm mb-6 max-w-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                        Sign in and purchase <strong style={{ color: "var(--text-main)" }}>Get Right with Uncle John</strong>
-                        unlock the TDEE calculator and find out exactly how many calories you need to reach your goals.
+                        Sign in and purchase <strong style={{ color: "var(--text-main)" }}>Get Right with Uncle John </strong>
+                        to unlock the TDEE calculator and find out exactly how many calories you need to reach your goals.
                     </p>
                     <Link
                         href="/sign-in"
@@ -135,7 +135,7 @@ export default function ToolsPage() {
                         TDEE Calculator
                     </h2>
                     <p className="text-sm mb-6 max-w-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                        Purchase<strong style={{ color: "var(--text-main)" }}>Get Right with Uncle John</strong> to
+                        Purchase<strong style={{ color: "var(--text-main)" }}> Get Right with Uncle John</strong> to
                         unlock the TDEE calculator and find out exactly how many calories you need to reach your goals.                       
                     </p>
                     <Link
@@ -333,7 +333,7 @@ export default function ToolsPage() {
                                 {results.tdee.toLocaleString()}
                             </p>
 
-                            <p className="text-sm mb-6" style={{ color: "var(--sidebar-text)" }}>
+                            <p className="text-sm mb-6" style={{ color: "var(--gold-bright)" }}>
                                 Calories per day to maintain weight
                             </p>
 
@@ -375,7 +375,7 @@ export default function ToolsPage() {
                                     style={{ background: "rgba(255,255,255,0.06)" }}
                                 >
                                     <p className="text-xs mb-1" style={{ color: "var(--sidebar-muted)" }}>Protein</p>
-                                    <p className="text-lg font-medium" style={{ color: "var(--sidebar-text)" }}>
+                                    <p className="text-lg font-medium" style={{ color: "var(--gold-bright)" }}>
                                         {results.protein}g
                                     </p>
                                     <p className="text-xs" style={{ color: "var(--sidebar-muted}" }}>30%</p>
@@ -385,7 +385,7 @@ export default function ToolsPage() {
                                     style={{ background: "rgba(255,255,255,0.06)" }}
                                 >
                                     <p className="text-xs mb-1" style={{ color: "var(--sidebar-muted)" }}>Carbs</p>
-                                    <p className="text-lg font-medium" style={{ color: "var(--sidebar-text)" }}>
+                                    <p className="text-lg font-medium" style={{ color: "var(--gold-bright)" }}>
                                         {results.carbs}g
                                     </p>
                                     <p className="text-xs" style={{ color: "var(--sidebar-muted}" }}>45%</p>
@@ -395,7 +395,7 @@ export default function ToolsPage() {
                                     style={{ background: "rgba(255,255,255,0.06)" }}
                                 >
                                     <p className="text-xs mb-1" style={{ color: "var(--sidebar-muted)" }}>Fats</p>
-                                    <p className="text-lg font-medium" style={{ color: "var(--sidebar-text)" }}>
+                                    <p className="text-lg font-medium" style={{ color: "var(--gold-bright)" }}>
                                         {results.fats}g
                                     </p>
                                     <p className="text-xs" style={{ color: "var(--sidebar-muted}" }}>25%</p>
