@@ -64,6 +64,13 @@ export default function Sidebar() {
         Messages
       </Link>
       <Link
+        href="/tools"
+        className="text-sm px-3 py-2 rounded-lg transition-colors"
+        style={{ color: "var(--sidebar-muted)" }}
+        >
+          TDEE Calculator
+        </Link>
+      <Link
         href="/supplements"
         className="text-sm px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
         style={{ color: "var(--sidebar-muted)" }}

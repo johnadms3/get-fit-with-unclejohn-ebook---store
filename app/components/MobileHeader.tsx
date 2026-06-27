@@ -94,9 +94,17 @@ export default function MobileHeader() {
                             href="/messages"
                             className="text-sm px-3 py-2 rounded-lg transition-colors"
                             style={{ color: "var(--sidebar-muted)" }}
-                            >
-                                Messages
-                            </Link>
+                        >
+                               Messages
+                        </Link>
+                        <Link
+                            href="/tools"
+                            onClick={() => setMenuOpen(false)}
+                            className="text-sm px-3 py-2 rounded-lg transition-colors"
+                            style={{ color: "var(--sidebar-muted)" }}
+                        >
+                            TDEE Calculator
+                        </Link>
                         <Link
                             href="/supplements"
                             onClick={() => setMenuOpen(false)}

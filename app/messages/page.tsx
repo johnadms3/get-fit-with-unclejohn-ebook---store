@@ -36,7 +36,7 @@ export default function MessagesPage() {
             setChecking(false)
         }
         if (isSignedIn) checkPurchase()
-        // else setChecking(false)
+        setTimeout(() => setChecking(false), 0)
     }, [isSignedIn])
 
     // Load messages
