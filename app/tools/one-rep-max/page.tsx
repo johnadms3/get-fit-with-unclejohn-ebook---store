@@ -33,7 +33,7 @@ export default function OneRepMaxPage() {
             try {
                 const res = await fetch("/api/verify-purchase")
                 const data = await res.json()
-                setPurchased(data.puchased)
+                setPurchased(data.purchased)
             } catch {
                 setPurchased(false)
             }

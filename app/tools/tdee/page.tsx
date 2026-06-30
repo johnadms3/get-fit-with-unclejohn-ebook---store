@@ -154,6 +154,9 @@ export default function ToolsPage() {
     return (
         <PageLayout>
             <div className="px-4 sm:px-6 py-8 max-w-lg page-enter">
+                <Link href="/tools" className="text-xs mb-4 inline-block" style={{ color: "var(--accent)" }}>
+                    ⃖ Back to tools
+                </Link>
 
                 <h1 className="text-2x1 font-medium mb-1" style={{ color: "var(--accent)" }}>
                     TDEE Calculator

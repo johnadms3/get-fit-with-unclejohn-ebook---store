@@ -51,7 +51,7 @@ export default function ToolsPage() {
                 </h2>
                 <p className="text-sm mb-6 max-w-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     Sign in and purchase <strong style={{ color: "var(--text-main)" }}>Get Right with Uncle John </strong>
-                    to unlock the TDEE calculator and find out exactly how many calories you need to reach your goals.
+                    to unlock exclusive fitness calculators and tools.
                 </p>
                 <Link
                     href="/sign-in"
@@ -75,8 +75,8 @@ export default function ToolsPage() {
                         Fitness Tools
                     </h2>
                     <p className="text-sm mb-6 max-w-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                        Purchase<strong style={{ color: "var(--text-main)" }}> Get Right with Uncle John</strong> to
-                        unlock the TDEE calculator and find out exactly how many calories you need to reach your goals.                       
+                        Purchase <strong style={{ color: "var(--text-main)" }}>Get Right with Uncle John </strong>
+                    to unlock exclusive fitness calculators and tools.                      
                     </p>
                     <Link
                         href="/"
