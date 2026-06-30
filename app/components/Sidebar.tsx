@@ -68,7 +68,7 @@ export default function Sidebar() {
         className="text-sm px-3 py-2 rounded-lg transition-colors"
         style={{ color: "var(--sidebar-muted)" }}
         >
-          TDEE Calculator
+          Fitness Tools
         </Link>
       <Link
         href="/supplements"
